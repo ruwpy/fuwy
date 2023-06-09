@@ -1,4 +1,5 @@
-export interface Product {
+export interface IProduct {
+  id: number;
   image: string;
   name: string;
   price: number;
@@ -12,8 +13,9 @@ export interface Product {
   isBig: boolean;
 }
 
-const products: Product[] = [
+export const products: IProduct[] = [
   {
+    id: 1,
     description:
       "bold proportions and comfort-driven curvature make the varick a contemporary statement fit for everyday luxury. its oversized arms and low-slung profile lend a relaxed, casual feel.",
     fabric: "mohair - mink",
@@ -28,6 +30,7 @@ const products: Product[] = [
     isBig: false,
   },
   {
+    id: 2,
     description:
       "bold proportions and comfort-driven curvature make the varick a contemporary statement fit for everyday luxury. its oversized arms and low-slung profile lend a relaxed, casual feel.",
     fabric: "mohair - mink",
@@ -43,6 +46,7 @@ const products: Product[] = [
     isBig: false,
   },
   {
+    id: 3,
     description:
       "bold proportions and comfort-driven curvature make the varick a contemporary statement fit for everyday luxury. its oversized arms and low-slung profile lend a relaxed, casual feel.",
     fabric: "mohair - mink",
@@ -57,6 +61,20 @@ const products: Product[] = [
     size: '10" wide',
     isBig: true,
   },
+  {
+    id: 4,
+    description:
+      "bold proportions and comfort-driven curvature make the varick a contemporary statement fit for everyday luxury. its oversized arms and low-slung profile lend a relaxed, casual feel.",
+    fabric: "mohair - mink",
+    image:
+      "https://img2.cgtrader.com/items/159730/9b1b951bc9/achille-armchair-3d-model-max-obj.jpg",
+    name: "the varick",
+    price: 375,
+    rating: {
+      numOfReviews: 18,
+      numOfStars: 4,
+    },
+    size: '10" wide',
+    isBig: false,
+  },
 ];
-
-export default products;
