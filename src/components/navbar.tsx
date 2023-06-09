@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import Icons from "./icons";
+import { Icons } from "./icons";
 
-const Navbar = () => {
+export const Navbar = () => {
   const unparsedCart = localStorage.getItem("cartItems");
   const cartItems = unparsedCart && (JSON.parse(unparsedCart) as { itemId: string }[]);
 
   return (
-    <nav className="nav absolute w-full flex items-center justify-between mt-[40px] max-w-[1680px] mx-auto px-6">
+    <nav className="nav absolute w-full flex items-center justify-between mt-[40px] max-w-[1680px] mx-auto px-6 pr-8">
       <Link to="/">
         <span className="logo text-3xl font-bold">
           fu<span className="text-indigo">w</span>y.
@@ -33,5 +33,3 @@ const Navbar = () => {
     </nav>
   );
 };
-
-export default Navbar;
