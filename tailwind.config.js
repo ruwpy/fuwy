@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        indigo: '#545BFF'
+        indigo: '#545BFF',
+        indigoHover: '#494fe3'
       }
     },
   },

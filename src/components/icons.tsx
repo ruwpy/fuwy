@@ -1,7 +1,9 @@
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, ChevronLeft, ChevronRight, X, Star } from "lucide-react";
 
-const Icons = {
+export const Icons = {
+  star: Star,
+  x: X,
   cart: ShoppingCart,
+  chevronRight: ChevronRight,
+  chevronLeft: ChevronLeft,
 };
-
-export default Icons;

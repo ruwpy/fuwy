@@ -6,7 +6,7 @@ const backdropVariant: Variants = {
   closed: {
     opacity: 0,
     transition: {
-      delay: 0.3,
+      delay: 0.4,
     },
   },
   open: {

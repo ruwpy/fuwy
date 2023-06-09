@@ -6,7 +6,7 @@ export const Navbar = () => {
   const cartItems = unparsedCart && (JSON.parse(unparsedCart) as { itemId: string }[]);
 
   return (
-    <nav className="nav absolute w-full flex items-center justify-between mt-[40px] max-w-[1680px] mx-auto px-6 pr-8">
+    <nav className="nav absolute w-full left-0 right-0 flex items-center justify-between mt-[40px] max-w-[1680px] mx-auto px-6 pr-8">
       <Link to="/">
         <span className="logo text-3xl font-bold">
           fu<span className="text-indigo">w</span>y.
