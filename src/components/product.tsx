@@ -33,7 +33,7 @@ const productInfoVariant: Variants = {
   },
   hover: (custom) => ({
     translateY: 0,
-    transition: { duration: 0.5, delay: custom, easings: "cubic-bezier(0.83, 0, 0.17, 1)" },
+    transition: { duration: 0.3, delay: custom, easings: "cubic-bezier(0.83, 0, 0.17, 1)" },
   }),
 };
 
@@ -52,12 +52,14 @@ const Product = ({
       initial="initial"
       whileHover="hover"
       className={`product flex-shrink-0 relative overflow-hidden cursor-pointer ${
-        isBig ? "w-[700px] rounded-[200px]" : "w-[350px] rounded-[100px]"
-      } h-[425px]`}
+        isBig
+          ? "pr1:w-[800px] pr1.25:w-[700px] rounded-[250px]"
+          : "pr1:w-[400px] pr1.25:w-[350px] rounded-[100px]"
+      } pr1:h-[500px] pr1.25:h-[425px]`}
     >
       <m.img
         variants={imageVariant}
-        className={`product-image w-full h-full object-cover`}
+        className={`product-image w-full h-full pointer-events-none object-cover`}
         src={image}
         alt="product image"
       />

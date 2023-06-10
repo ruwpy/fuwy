@@ -30,7 +30,7 @@ const Modal = ({ children, isModalOpen, setIsModalOpen }: ModalProps) => {
           initial="closed"
           exit="closed"
           variants={backdropVariant}
-          className="absolute inset-0 bg-black/60 overflow-hidden"
+          className="absolute inset-0 bg-black/60 overflow-hidden z-20"
         >
           {children}
         </m.div>
