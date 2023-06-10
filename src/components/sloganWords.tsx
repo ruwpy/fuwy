@@ -42,7 +42,7 @@ export const SloganWords = React.memo(() => {
   }, []);
 
   return (
-    <m.h1 className="text-indigo overflow-hidden whitespace-nowrap h-[60px] inline-block min-w-[200px]">
+    <m.h1 className="text-indigo overflow-hidden whitespace-nowrap inline-block min-w-[200px]">
       <AnimatePresence mode="sync">
         {!!currentSloganWord &&
           currentSloganWord.split("").map((letter, index) => {
