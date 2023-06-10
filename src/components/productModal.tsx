@@ -1,7 +1,9 @@
 import { IProduct } from "../data/products";
+import { useCartStore } from "../store/cartStore";
 import { Icons } from "./icons";
 import Modal, { ModalProps } from "./modal";
 import { Variants, motion as m } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const modalVariant: Variants = {
   closed: {
@@ -24,7 +26,7 @@ const modalVariant: Variants = {
 
 const productImageVariant: Variants = {
   closed: {
-    translateY: 750,
+    bottom: "-100%",
     transition: {
       type: "tween",
       duration: 0.8,
@@ -32,7 +34,7 @@ const productImageVariant: Variants = {
     },
   },
   open: {
-    translateY: -75,
+    bottom: "13.5%",
     transition: {
       type: "tween",
       duration: 0.6,
@@ -47,7 +49,11 @@ interface ProductModalProps extends ModalProps {
 }
 
 export const ProductModal = ({ product, isModalOpen, setIsModalOpen }: ProductModalProps) => {
-  return (
+  const { addItemToCart, cartItems, removeItemFromCart } = useCartStore();
+  const isItemInCart = cartItems.filter((item) => product?.id === item.id);
+  const navigate = useNavigate();
+
+  return product ? (
     <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
       <m.div
         className="absolute inset-0 pointer-events-none flex flex-col justify-end"
@@ -80,25 +86,45 @@ export const ProductModal = ({ product, isModalOpen, setIsModalOpen }: ProductMo
                     {product?.description}
                   </p>
                   <span className="flex flex-col mt-8 text-xl">
-                    <span>fabric or leather: {product?.fabric}</span>
+                    <span>color: {product?.color}</span>
                     <span>size: {product?.size}</span>
                   </span>
                 </div>
-                <button className="w-[400px] bg-indigo hover:bg-indigoHover transition-colors text-white rounded-full h-[50px] text-xl">
-                  add to cart
-                </button>
+                {isItemInCart?.length ? (
+                  <div className="relative w-fit">
+                    <button
+                      onClick={() => navigate("/cart")}
+                      className="w-[400px] bg-indigo hover:bg-indigoHover transition-colors text-white rounded-full h-[50px] text-xl"
+                    >
+                      go to cart
+                    </button>
+                    <button
+                      onClick={() => product.id && removeItemFromCart(product.id)}
+                      className="absolute -top-4 -right-2 p-2 rounded-full bg-[#d9d9d9] hover:bg-[#c3c3c3] transition-colors"
+                    >
+                      <Icons.x width={25} height={25} color="black" />
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => addItemToCart(product)}
+                    className="w-[400px] bg-indigo hover:bg-indigoHover transition-colors text-white rounded-full h-[50px] text-xl"
+                  >
+                    add to cart
+                  </button>
+                )}
               </div>
               <m.img
                 variants={productImageVariant}
                 custom={0.2}
-                className="product-image rounded-[80px] h-[120%] md:max-h-[650px]"
+                className="product-image relative rounded-[80px] h-[110%]"
                 src={product?.image}
                 alt="product image"
               />
             </div>
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute -top-[30px] close-modal-button bg-white p-4 rounded-full"
+              className="close-modal-button absolute -top-[30px] bg-white p-4 rounded-full"
             >
               <Icons.x width={30} height={30} />
             </button>
@@ -106,5 +132,5 @@ export const ProductModal = ({ product, isModalOpen, setIsModalOpen }: ProductMo
         </div>
       </m.div>
     </Modal>
-  );
+  ) : null;
 };
