@@ -53,9 +53,9 @@ const Product = ({
       whileHover="hover"
       className={`product flex-shrink-0 relative overflow-hidden cursor-pointer ${
         isBig
-          ? "pr1:w-[800px] pr1.25:w-[700px] rounded-[250px]"
-          : "pr1:w-[400px] pr1.25:w-[350px] rounded-[100px]"
-      } pr1:h-[500px] pr1.25:h-[425px]`}
+          ? "w-[465px] rounded-[150px] md:pr1:w-[800px] md:pr1.25:w-[700px] md:rounded-[250px]"
+          : "w-[280px] rounded-[75px] md:pr1:w-[400px] md:pr1.25:w-[350px] md:rounded-[100px]"
+      } h-[320px] md:pr1:h-[500px] md:pr1.25:h-[425px]`}
     >
       <m.img
         variants={imageVariant}
@@ -66,7 +66,7 @@ const Product = ({
       <m.div
         variants={bgVariant}
         className={`product-bg flex justify-end text-center flex-col pb-[20px] items-center pointer-events-none transition-color ${
-          isBig ? "rounded-[200px]" : "rounded-[100px]"
+          isBig ? "rounded-[150px] md:rounded-[200px]" : "rounded-[75px] md:rounded-[100px]"
         } absolute inset-0`}
       >
         <m.span className="text-white text-2xl" variants={productInfoVariant} custom={0}>

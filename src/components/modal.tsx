@@ -20,7 +20,7 @@ export interface ModalProps {
   children?: ReactNode;
 }
 
-const Modal = ({ children, isModalOpen, setIsModalOpen }: ModalProps) => {
+export const Modal = ({ children, isModalOpen, setIsModalOpen }: ModalProps) => {
   return createPortal(
     <AnimatePresence mode="wait">
       {isModalOpen && (
@@ -39,5 +39,3 @@ const Modal = ({ children, isModalOpen, setIsModalOpen }: ModalProps) => {
     document.getElementById("modal") as Element
   );
 };
-
-export default Modal;
