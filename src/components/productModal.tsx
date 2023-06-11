@@ -1,7 +1,7 @@
 import { IProduct } from "../data/products";
 import { useCartStore } from "../store/cartStore";
 import { Icons } from "./icons";
-import Modal, { ModalProps } from "./modal";
+import { Modal, ModalProps } from "./modal";
 import { Variants, motion as m } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
