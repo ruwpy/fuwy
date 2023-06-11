@@ -3,7 +3,7 @@ import { Icons } from "./icons";
 import { useCartStore } from "../store/cartStore";
 import { useState } from "react";
 import { useIsMobile } from "../hooks/useIsMobile";
-import { Variants, motion as m } from "framer-motion";
+import { motion as m } from "framer-motion";
 import { NavModal } from "./navModal";
 
 export const Navbar = () => {
