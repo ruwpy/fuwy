@@ -38,36 +38,16 @@ export const ProductModal = ({ product, isModalOpen, setIsModalOpen }: ProductMo
                     </span>
                     <span className="flex gap-2 items-end">
                       <span className="flex gap-1">
-                        <Icons.star
-                          width={isMobile ? 20 : 25}
-                          height={isMobile ? 20 : 25}
-                          fill="#d9d9d9"
-                          stroke="#d9d9d9"
-                        />
-                        <Icons.star
-                          width={isMobile ? 20 : 25}
-                          height={isMobile ? 20 : 25}
-                          fill="#d9d9d9"
-                          stroke="#d9d9d9"
-                        />
-                        <Icons.star
-                          width={isMobile ? 20 : 25}
-                          height={isMobile ? 20 : 25}
-                          fill="#d9d9d9"
-                          stroke="#d9d9d9"
-                        />
-                        <Icons.star
-                          width={isMobile ? 20 : 25}
-                          height={isMobile ? 20 : 25}
-                          fill="#d9d9d9"
-                          stroke="#d9d9d9"
-                        />
-                        <Icons.star
-                          width={isMobile ? 20 : 25}
-                          height={isMobile ? 20 : 25}
-                          fill="#d9d9d9"
-                          stroke="#d9d9d9"
-                        />
+                        {product.rating.stars.map((star) => {
+                          return (
+                            <Icons.star
+                              width={isMobile ? 20 : 25}
+                              height={isMobile ? 20 : 25}
+                              fill={`${star.filled ? "#F8E961" : "#d9d9d9"}`}
+                              stroke=""
+                            />
+                          );
+                        })}
                       </span>
                       <span className="text-[14px] leading-4 xl:text-base text-black/60">
                         {product?.rating.numOfReviews} reviews
