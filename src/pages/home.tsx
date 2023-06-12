@@ -4,14 +4,10 @@ import { Icons } from "../components/icons";
 import Product from "../components/product";
 import { IProduct, products } from "../data/products";
 import { ProductModal } from "../components/productModal";
-import { Variants, motion as m } from "framer-motion";
+import { motion as m } from "framer-motion";
 import { HomeHeading } from "../components/homeHeading";
 import { useIsMobile } from "../hooks/useIsMobile";
-
-const slideProducts: Variants = {
-  initial: { right: 0, transition: { type: "spring", stiffness: 30 } },
-  animate: { right: "80%", transition: { type: "spring", stiffness: 30 } },
-};
+import { slideProductsAnimation } from "../config/motion";
 
 export const Home = () => {
   const [isProductModalOpen, setIsProductModalOpen] = useState(false);
@@ -67,7 +63,7 @@ export const Home = () => {
                   if (swipe < -500) setIsSlidedToRight(true);
                   if (swipe > 500) setIsSlidedToRight(false);
                 }}
-                variants={slideProducts}
+                variants={slideProductsAnimation}
                 animate={isSlidedToRight ? "animate" : "initial"}
                 className={`products [&>*:nth-child(1)]:-translate-x-24 [&>*:nth-child(2)]:translate-x-32 [&>*:nth-child(3)]:translate-x-6 [&>*:nth-child(4)]:-translate-x-24 md:ml-[60px] md:cursor-grab relative flex flex-col md:flex-row mt-[60px] md:mt-[40px] gap-[40px]`}
               >

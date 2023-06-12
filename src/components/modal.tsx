@@ -1,18 +1,7 @@
 import { createPortal } from "react-dom";
-import { AnimatePresence, motion as m, Variants } from "framer-motion";
+import { AnimatePresence, motion as m } from "framer-motion";
 import { ReactNode } from "react";
-
-const backdropVariant: Variants = {
-  closed: {
-    opacity: 0,
-    transition: {
-      delay: 0.4,
-    },
-  },
-  open: {
-    opacity: 1,
-  },
-};
+import { modalBackdropAnimation } from "../config/motion";
 
 export interface ModalProps {
   isModalOpen: boolean;
@@ -29,7 +18,7 @@ export const Modal = ({ children, isModalOpen, setIsModalOpen }: ModalProps) => 
           animate={isModalOpen ? "open" : "closed"}
           initial="closed"
           exit="closed"
-          variants={backdropVariant}
+          variants={modalBackdropAnimation}
           className="absolute inset-0 bg-black/60 overflow-hidden z-20"
         >
           {children}
