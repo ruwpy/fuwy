@@ -1,41 +1,6 @@
-import { Variants, motion as m } from "framer-motion";
+import { motion as m } from "framer-motion";
 import { IProduct } from "../data/products";
-
-const imageVariant: Variants = {
-  initial: {
-    scale: 1,
-  },
-  hover: {
-    scale: 1.08,
-    transition: {
-      easings: "cubic-bezier(.165,.84,.44,1)",
-      duration: 1,
-    },
-  },
-};
-
-const bgVariant: Variants = {
-  initial: {
-    background: "rgba(0,0,0,0)",
-  },
-  hover: {
-    background: "rgba(0,0,0,0.5)",
-    transition: {
-      duration: 0.35,
-      delay: 0.1,
-    },
-  },
-};
-
-const productInfoVariant: Variants = {
-  initial: {
-    translateY: "100px",
-  },
-  hover: (custom) => ({
-    translateY: 0,
-    transition: { duration: 0.3, delay: custom, easings: "cubic-bezier(0.83, 0, 0.17, 1)" },
-  }),
-};
+import { productAnimations } from "../config/motion";
 
 const Product = ({
   product,
@@ -51,28 +16,28 @@ const Product = ({
       onClick={(e) => onClick(e)}
       initial="initial"
       whileHover="hover"
-      className={`product flex-shrink-0 relative overflow-hidden cursor-pointer ${
+      className={`product md:!translate-x-0 flex-shrink-0 relative overflow-hidden cursor-pointer ${
         isBig
-          ? "w-[465px] rounded-[150px] md:pr1:w-[800px] md:pr1.25:w-[700px] md:rounded-[250px]"
-          : "w-[280px] rounded-[75px] md:pr1:w-[400px] md:pr1.25:w-[350px] md:rounded-[100px]"
-      } h-[320px] md:pr1:h-[500px] md:pr1.25:h-[425px]`}
+          ? "w-[465px] rounded-[150px] xl:pr1:w-[800px] xl:pr1.25:w-[700px] xl:rounded-[250px]"
+          : "w-[280px] rounded-[75px] xl:pr1:w-[400px] xl:pr1.25:w-[350px] xl:rounded-[100px]"
+      } h-[320px] xl:pr1:h-[500px] xl:pr1.25:h-[425px]`}
     >
       <m.img
-        variants={imageVariant}
+        variants={productAnimations.image}
         className={`product-image w-full h-full pointer-events-none object-cover`}
         src={image}
         alt="product image"
       />
       <m.div
-        variants={bgVariant}
+        variants={productAnimations.bg}
         className={`product-bg flex justify-end text-center flex-col pb-[20px] items-center pointer-events-none transition-color ${
-          isBig ? "rounded-[150px] md:rounded-[200px]" : "rounded-[75px] md:rounded-[100px]"
+          isBig ? "rounded-[150px] xl:rounded-[200px]" : "rounded-[75px] xl:rounded-[100px]"
         } absolute inset-0`}
       >
-        <m.span className="text-white text-2xl" variants={productInfoVariant} custom={0}>
+        <m.span className="text-white text-2xl" variants={productAnimations.info} custom={0}>
           {name}
         </m.span>
-        <m.span className="text-white opacity-60" variants={productInfoVariant} custom={0.2}>
+        <m.span className="text-white opacity-60" variants={productAnimations.info} custom={0.2}>
           from ${price}
         </m.span>
       </m.div>
