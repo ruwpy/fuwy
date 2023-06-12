@@ -19,7 +19,7 @@ export const Modal = ({ children, isModalOpen, setIsModalOpen }: ModalProps) => 
           initial="closed"
           exit="closed"
           variants={modalBackdropAnimation}
-          className="absolute inset-0 bg-black/60 overflow-hidden z-20"
+          className="absolute inset-0 h-[100svh] bg-black/60 overflow-hidden z-20"
         >
           {children}
         </m.div>

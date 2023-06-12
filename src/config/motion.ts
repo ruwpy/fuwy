@@ -18,7 +18,7 @@ export const modalBackdropAnimation: Variants = {
 };
 
 export const navModalAnimation: Variants = {
-  initial: { x: "150px" },
+  initial: { x: "200px" },
   open: { x: 0, transition: { type: "tween", ease: "easeInOut" } },
 };
 

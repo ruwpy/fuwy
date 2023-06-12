@@ -63,10 +63,10 @@ export const ProductModal = ({ product, isModalOpen, setIsModalOpen }: ProductMo
                   </span>
                 </div>
                 {isItemInCart?.length ? (
-                  <div className="relative w-fit">
+                  <div className="relative w-full max-w-[400px  ]">
                     <button
                       onClick={() => navigate("/cart")}
-                      className="w-[400px] bg-indigo hover:bg-indigoHover transition-colors text-white rounded-full h-[50px] text-xl"
+                      className="w-full md:w-[400px] bg-indigo hover:bg-indigoHover transition-colors text-white rounded-full h-[40px] xl:h-[50px] text-base xl:text-xl"
                     >
                       go to cart
                     </button>
@@ -74,7 +74,7 @@ export const ProductModal = ({ product, isModalOpen, setIsModalOpen }: ProductMo
                       onClick={() => product.id && removeItemFromCart(product.id)}
                       className="absolute -top-4 -right-2 p-2 rounded-full bg-[#d9d9d9] hover:bg-[#c3c3c3] transition-colors"
                     >
-                      <Icons.x width={25} height={25} color="black" />
+                      <Icons.x width={20} height={20} color="black" />
                     </button>
                   </div>
                 ) : (
