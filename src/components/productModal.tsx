@@ -63,7 +63,7 @@ export const ProductModal = ({ product, isModalOpen, setIsModalOpen }: ProductMo
                   </span>
                 </div>
                 {isItemInCart?.length ? (
-                  <div className="relative w-full max-w-[400px  ]">
+                  <div className="relative w-full max-w-[400px]">
                     <button
                       onClick={() => navigate("/cart")}
                       className="w-full md:w-[400px] bg-indigo hover:bg-indigoHover transition-colors text-white rounded-full h-[40px] xl:h-[50px] text-base xl:text-xl"
